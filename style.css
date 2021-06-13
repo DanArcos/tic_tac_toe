@@ -1,0 +1,75 @@
+
+body{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: thistle;
+    font-size: 25px;
+}
+
+#gameStatus{
+    margin-top: 100px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#gameBoard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:100px;
+    width: 100%;
+    background-color: aliceblue;
+    font-size: 50px;
+}
+
+.grid_row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+}
+
+#row1, #row2{
+    border-bottom: 1px solid black;
+}
+
+.board_div{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+}
+
+#gameSpace_0, #gameSpace_1, #gameSpace_3, #gameSpace_4, #gameSpace_6, #gameSpace_7 {
+    border-right: 1px solid black;
+}
+
+.board_div:hover, :focus{
+    cursor: pointer;
+    background-color: yellow;
+}
+
+#clear_button_div{
+    padding-top: 20px;
+    display:flex;
+    justify-content: center;
+}
+
+#clear_btn {
+}
