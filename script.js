@@ -50,18 +50,17 @@ const displayController = ( () => {
     
     //Check if there's a winner
     var checkWinner = () => {
-        let condition1 = gameBoard.array[0]===gameBoard.array[1] && gameBoard.array[1]===gameBoard.array[2] //Check First Row
-        let condition2 = gameBoard.array[3]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[5] //Check Second Row
-        let condition3 = gameBoard.array[6]===gameBoard.array[7] && gameBoard.array[7]===gameBoard.array[8] //Check Third Row
-        
-        let condition4 = gameBoard.array[0]===gameBoard.array[3] && gameBoard.array[3]===gameBoard.array[6] //Check First Column
-        let condition5 = gameBoard.array[1]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[7] //Check Second Column
-        let condition6 = gameBoard.array[2]===gameBoard.array[5] && gameBoard.array[5]===gameBoard.array[8] //Check Third Column
-        
-        let condition7 = gameBoard.array[0]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[8] //Check First Diagnol
-        let condition8 = gameBoard.array[2]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[6] //Check Second Diagnol
+        let condition1 = gameBoard.array[0] !="" && gameBoard.array[0]===gameBoard.array[1] && gameBoard.array[1]===gameBoard.array[2] //Check First Row
+        let condition2 = gameBoard.array[3] !="" && gameBoard.array[3]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[5] //Check Second Row
+        let condition3 = gameBoard.array[6] !="" && gameBoard.array[6]===gameBoard.array[7] && gameBoard.array[7]===gameBoard.array[8] //Check Third Row
+        let condition4 = gameBoard.array[0] !="" && gameBoard.array[0]===gameBoard.array[3] && gameBoard.array[3]===gameBoard.array[6] //Check First Column
+        let condition5 = gameBoard.array[1] !="" && gameBoard.array[1]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[7] //Check Second Column
+        let condition6 = gameBoard.array[2] !="" && gameBoard.array[2]===gameBoard.array[5] && gameBoard.array[5]===gameBoard.array[8] //Check Third Column
+        let condition7 = gameBoard.array[0] !="" && gameBoard.array[0]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[8] //Check First Diagnol
+        let condition8 = gameBoard.array[2] !="" && gameBoard.array[2]===gameBoard.array[4] && gameBoard.array[4]===gameBoard.array[6] //Check Second Diagnol
 
-        return (condition1||condition2||condition3||condition4||condition5||condition6||condition7||condition8);
+        return condition1||condition2||condition3||condition4||condition5||condition6||condition7||condition8
+
     }
 
     //Update Display
@@ -78,7 +77,15 @@ const displayController = ( () => {
         })
 
         if(checkWinner()){
-            //Show Winning Display
+            if(gameBoard.playerTurn){
+                gameStatus.textContent = 'Player 2 Wins!'
+                //freeze game?
+            }
+            else {
+                gameStatus.textContent = 'Player 1 Wins!'
+                //freeze game?
+            }
+            
         }
         else{
             //Do Nothing and keep playing
