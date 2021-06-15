@@ -27,15 +27,25 @@ const displayController = ( () => {
 
                 div.addEventListener('click', (e)=>{
                     console.log(e.target)
-                    if (gameBoard.playerTurn){
-                        gameBoard.playerTurn = false // switch flag back
-                        player1.makeMove("X", e.target.dataset.index)
-                         
+                    console.log(gameBoard.array[e.target.dataset.index])
+                    console.log(gameBoard.array[e.target.dataset.index]=="")
+                    //If Current Tile empty, fill it
+                    if (gameBoard.array[e.target.dataset.index] == "") {
+                        if (gameBoard.playerTurn){
+                            gameBoard.playerTurn = false // switch flag back
+                            player1.makeMove("X", e.target.dataset.index)
+                             
+                        }
+                        else{
+                            gameBoard.playerTurn = true// switch flag back
+                            player2.makeMove("O", e.target.dataset.index)
+                        }
                     }
                     else{
-                        gameBoard.playerTurn = true// switch flag back
-                        player2.makeMove("O", e.target.dataset.index)
+                        alert('Select Another Spot!')
+                        //Do nothing
                     }
+                    
                     
                     console.log(gameBoard.array)
                 })
@@ -114,15 +124,9 @@ const displayController = ( () => {
 const Player = (name) => {
     const getName = () => {console.log(`my name is ${name}`)}
     const makeMove = (mark, index) => {
-        if(gameBoard.array[index] != ""){
-            //Do Nothing If already occupied
-            alert("Select Another Spot!")
+        gameBoard.array[index] = mark
+        displayController.updateDisplay(gameBoard.array)
         }
-        else{
-            gameBoard.array[index] = mark
-            displayController.updateDisplay(gameBoard.array)
-        }
-    };
     return {getName, makeMove}
 }
 
