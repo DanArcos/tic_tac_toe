@@ -74,3 +74,14 @@ body{
 #clear_btn {
     font-size: 25px;
 }
+
+#footer{
+    position:fixed;
+    bottom: 0;
+    left:0;
+    background-color: coral;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}

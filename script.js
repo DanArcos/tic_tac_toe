@@ -85,7 +85,11 @@ const displayController = ( () => {
                 gameStatus.textContent = 'Player 1 Wins!'
                 //freeze game?
             }
-            
+            //Remove Event Listener
+            document.querySelectorAll(".board_div").forEach(element => {
+                var new_element = element.cloneNode(true);
+                element.parentNode.replaceChild(new_element, element)
+            })
         }
         else{
             //Do Nothing and keep playing
@@ -94,9 +98,11 @@ const displayController = ( () => {
     }
     
     var wipeBoard = () => {
-        gameBoard.array = gameBoard.clearBoard()
-        gameBoard.playerTurn = true;
-        updateDisplay(gameBoard.array)
+        //gameBoard.array = gameBoard.clearBoard()
+        //displayController.createGrid()
+        //gameBoard.playerTurn = true;
+        //updateDisplay(gameBoard.array)
+        location.reload()
         console.log(gameBoard.array)    
     }
 
